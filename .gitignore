@@ -1,0 +1,15 @@
+# Hugo output directory
+/public/
+/resources/
+*.DS_Store
+*.bak
+*.swp
+*~
+# Cache files
+hugo.log
+.hugo_build.lock
+# Node modules
+/node_modules/
+# OS generated files
+.DS_Store
+Thumbs.db
