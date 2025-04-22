@@ -1,5 +1,5 @@
 ---
-title: "La_mano_e_il_guanto"
+title: "La mano e il guanto"
 date: 2025-04-22T17:58:26+02:00
 draft: false
 autore: ""

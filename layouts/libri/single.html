@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main>
+  <article class="libro">
+    <div class="libro-header">
+      <div class="libro-copertina">
+        {{ if .Params.copertina }}
+        <img src="{{ .Params.copertina | absURL }}" alt="Copertina: {{ .Title }}">
+        {{ end }}
+      </div>
+      <div class="libro-info">
+        <h1>{{ .Title }}</h1>
+        <p class="autore">di {{ .Params.autore }}</p>
+        <div class="libro-dettagli">
+          {{ if .Params.pagine }}<p><strong>Pagine:</strong> {{ .Params.pagine }}</p>{{ end }}
+          {{ if .Params.isbn }}<p><strong>ISBN:</strong> {{ .Params.isbn }}</p>{{ end }}
+          {{ if .Params.prezzo }}<p><strong>Prezzo:</strong> {{ .Params.prezzo }}</p>{{ end }}
+        </div>
+        <div class="libro-acquista">
+          <h3>Acquista:</h3>
+          <div class="acquista-links">
+            {{ range .Params.acquista }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="acquista-btn">{{ .nome }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="libro-contenuto">
+      {{ .Content }}
+    </div>
+  </article>
+</main>
+{{ end }}
