@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main>
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+  
+  <h2>I Nostri Libri</h2>
+  <div class="libri-grid">
+    {{ range where .Site.RegularPages "Section" "libri" }}
+      <div class="libro-card">
+        <a href="{{ .Permalink }}">
+          {{ if .Params.copertina }}
+          <img src="{{ .Params.copertina | absURL }}" alt="Copertina: {{ .Title }}">
+          {{ end }}
+          <h3>{{ .Title }}</h3>
+          <p class="autore">di {{ .Params.autore }}</p>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}
