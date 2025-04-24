@@ -1,6 +1,5 @@
 ---
-title: "La mano e il guanto"
-date: 2025-04-22T17:58:26+02:00
+title: "La_mano_e_il_guanto"
 draft: false
 autore: ""
 copertina: "immagini/copertine/la_mano_e_il_guanto.jpg"
@@ -10,10 +9,25 @@ prezzo: ""
 acquista:
   - nome: "Amazon"
     url: ""
+    logo: "immagini/loghi/amazon_logo.png"
   - nome: "IBS"
     url: ""
+    logo: "immagini/loghi/ibs_logo.png"
+  - nome: "Feltrinelli"
+    url: ""
+    logo: "immagini/loghi/feltrinelli_logo.png"  
   - nome: "Mondadori"
     url: ""
+    logo: "immagini/loghi/mondadori_logo.png"
+  - nome: "Kobo Store"
+    url: ""
+    logo: "immagini/loghi/kobo_logo.png"
+  - nome: "Google Play Libri"
+    url: ""
+    logo: "immagini/loghi/google_logo.png"
+  - nome: "Libraccio"
+    url: ""
+    logo: "immagini/loghi/libraccio_logo.png"
 ---
 
 Inserisci qui la sinossi del libro...

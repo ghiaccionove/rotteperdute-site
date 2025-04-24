@@ -19,7 +19,13 @@
           <h3>Acquista:</h3>
           <div class="acquista-links">
             {{ range .Params.acquista }}
-            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="acquista-btn">{{ .nome }}</a>
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="acquista-btn">
+              {{ if .logo }}
+              <img src="{{ .logo | absURL }}" alt="{{ .nome }}" class="store-logo">
+              {{ else }}
+              {{ .nome }}
+              {{ end }}
+            </a>
             {{ end }}
           </div>
         </div>

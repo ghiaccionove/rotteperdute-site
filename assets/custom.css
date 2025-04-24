@@ -84,3 +84,29 @@
       margin: 0 auto 2rem;
     }
   }
+
+  .store-logo {
+    height: 30px;
+    max-width: 100px;
+    vertical-align: middle;
+  }
+  
+  .acquista-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.3s;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .acquista-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border-color: #bbb;
+  }

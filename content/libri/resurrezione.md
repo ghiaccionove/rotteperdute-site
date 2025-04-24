@@ -1,8 +1,8 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "Resurrezione"
 draft: false
 autore: ""
-copertina: "immagini/copertine/{{ .Name }}.jpg"
+copertina: "immagini/copertine/resurrezione.jpg"
 pagine: 0
 isbn: ""
 prezzo: ""
