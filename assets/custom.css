@@ -116,4 +116,13 @@
   max-width: 300px; /* Imposta una larghezza massima (adatta al tuo design) */
   height: auto; /* Mantieni le proporzioni */
   mix-blend-mode: multiply;
+  margin: 0 auto;
+}
+
+header {
+  display: none !important;
+}
+
+main {
+  padding-top: 0rem;
 }

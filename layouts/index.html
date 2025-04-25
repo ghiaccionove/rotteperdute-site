@@ -3,7 +3,6 @@
   <img src="{{ "/immagini/loghi/logo_testo.png" | absURL }}" alt="{{ .Site.Title }}" class="site-logo">
   <p>{{ .Site.Params.description }}</p>
   
-  <h2>I Nostri Libri</h2>
   <div class="libri-grid">
     {{ range where .Site.RegularPages "Section" "libri" }}
       <div class="libro-card">

@@ -1,11 +1,10 @@
 ---
 title: "Resurrezione"
 draft: false
-autore: ""
+autore: "Machado de Assis"
+traduttore: "Bruno Pinto"
 copertina: "immagini/copertine/resurrezione.jpg"
 pagine: 0
-isbn: ""
-prezzo: ""
 acquista:
   - nome: "Amazon"
     url: ""
