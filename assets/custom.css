@@ -95,7 +95,7 @@
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: white;
+    background-color: transparent;
     border: 1px solid #ddd;
     color: #333;
     text-decoration: none;
@@ -110,3 +110,10 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     border-color: #bbb;
   }
+
+.site-logo {
+  display: block; /* L'immagine si comporta come un blocco */
+  max-width: 300px; /* Imposta una larghezza massima (adatta al tuo design) */
+  height: auto; /* Mantieni le proporzioni */
+  mix-blend-mode: multiply;
+}
