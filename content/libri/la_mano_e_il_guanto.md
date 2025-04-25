@@ -4,7 +4,7 @@ draft: false
 autore: "Machado de Assis"
 traduttore: "Bruno Pinto"
 copertina: "immagini/copertine/la_mano_e_il_guanto.jpg"
-pagine: 137
+pagine: 147
 acquista:
   - nome: "Amazon"
     url: "https://www.amazon.it/guanto-Joaquim-Maria-Machado-Assis/dp/B0DVZB6Z9V/ref=tmm_pap_swatch_0?_encoding=UTF8&sr=8-1"
@@ -29,4 +29,6 @@ acquista:
     logo: "immagini/loghi/libraccio_logo.png"
 ---
 
-Inserisci qui la sinossi del libro...
+"La mano e il guanto" (A Mão e a Luva) è il secondo romanzo di Machado de Assis, pubblicato del 1874.
+Racconta la storia di Guiomar, una giovane donna, bella e determinata, cresciuta sotto la protezione di un’anziana baronessa. La sua intelligenza e il suo carattere deciso la rendono diversa dalle donne del suo tempo: non è disposta a lasciarsi trascinare solo dall’istinto, ma neanche a piegarsi alle scelte che le sono imposte dalla società.
+Quando degli uomini, molto diversi tra loro, iniziano a corteggiarla, la sua vita prende una svolta inaspettata. In un gioco sottile di sguardi, parole e gesti "La mano e il guanto" esplora il conflitto tra ragione e sentimento, aspettative sociali e libertà di scelta femminile, in un'epoca in cui il matrimonio era spesso considerato un destino obbligato. Con la sua prosa elegante e la finezza psicologica dei suoi personaggi, Machado de Assis ci regala un ritratto sofisticato dell’animo umano, in un romanzo che ancora oggi affascina per la sua modernità e profondità.
