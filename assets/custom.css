@@ -114,10 +114,10 @@ header {
 }
 
 main {
-  padding-top: 0rem;
+  padding: 0rem;
+  margin: 1rem;
 }
 
-main.pagina-libro {
-  justify-items: left;
-  margin-left: 0;
+main.homepage{
+  justify-content: center;
 }
