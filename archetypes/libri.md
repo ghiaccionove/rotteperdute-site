@@ -2,10 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 draft: false
 autore: ""
+traduttore: ""
 copertina: "immagini/copertine/{{ .Name }}.jpg"
 pagine: 0
-isbn: ""
-prezzo: ""
 acquista:
   - nome: "Amazon"
     url: ""

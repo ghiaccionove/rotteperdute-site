@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main>
+<main class="pagina-libro">
   <article class="libro">
     <div class="libro-header">
       <div class="libro-copertina">
@@ -9,7 +9,8 @@
       </div>
       <div class="libro-info">
         <h1>{{ .Title }}</h1>
-        <p class="autore">di {{ .Params.autore }}</p>
+        <p class="autore"><strong>di:</strong> {{ .Params.autore }}</p>
+        <p class="traduttore"><strong>traduzione di:</strong> {{ .Params.traduttore }}</p>
         <div class="libro-dettagli">
           {{ if .Params.pagine }}<p><strong>Pagine:</strong> {{ .Params.pagine }}</p>{{ end }}
           {{ if .Params.isbn }}<p><strong>ISBN:</strong> {{ .Params.isbn }}</p>{{ end }}

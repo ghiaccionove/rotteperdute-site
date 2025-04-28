@@ -36,7 +36,9 @@
   
   .libro-header {
     display: flex;
+    align-items: flex-start;
     gap: 2rem;
+    margin-top: 6rem;
     margin-bottom: 2rem;
   }
   
@@ -45,6 +47,8 @@
   }
   
   .libro-copertina img {
+    display: block;
+    margin: 0;
     max-width: 100%;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
@@ -57,20 +61,6 @@
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
-  }
-  
-  .acquista-btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #1e90ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 3px;
-    font-weight: bold;
-  }
-  
-  .acquista-btn:hover {
-    background-color: #0c6cd4;
   }
   
   @media (max-width: 768px) {
@@ -125,4 +115,9 @@ header {
 
 main {
   padding-top: 0rem;
+}
+
+main.pagina-libro {
+  justify-items: left;
+  margin-left: 0;
 }
