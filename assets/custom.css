@@ -7,22 +7,25 @@
   }
   
   .libro-card {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    border-radius: 5px;
+    box-shadow: none;
     overflow: hidden;
     max-width: 200px;
   }
+
+  .libro-card a {
+    text-decoration: none;
+  }
   
-  .libro-card:hover {
+  .libro-card img:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
   
   .libro-card img {
-    max-width: 100%;
+    max-width: 95%;
     height: auto;
     display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
   
   .libro-card h2 {
@@ -115,7 +118,6 @@
 header {
   display: none !important;
 }
-
 
 main {
   padding: 0;
