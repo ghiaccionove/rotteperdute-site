@@ -82,7 +82,7 @@
   }
 
   .store-logo {
-    height: 50px;
+    height: 40px;
     max-width: 100px;
     vertical-align: middle;
   }
@@ -125,5 +125,5 @@ main {
 }
 
 body {
-  background-color: #faf0e6;
+  background-color: #faf0e6 !important;
 }
