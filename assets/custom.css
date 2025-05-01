@@ -124,17 +124,6 @@ main {
   max-width: 90%;
 }
 
-/* Forza il tema chiaro in tutti i casi */
-html {
-  color-scheme: light !important;
-}
-
-html.dark {
-  /* Copia qui tutte le variabili del tema chiaro */
-  color-scheme: light !important;
-}
-
-/* Neutralizza qualsiasi stile specifico della dark mode */
-.dark .dark-specific-element {
-  /* riporta allo stile del tema chiaro */
+body {
+  background-color: #faf0e6 !important;
 }

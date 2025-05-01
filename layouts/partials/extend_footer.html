@@ -1,0 +1,31 @@
+<script>
+  // Disattiva la funzione setDark del tema
+  window.setDark = function(isDark) {
+    // Ignora il parametro, forza sempre il tema chiaro
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('dark', false);
+    
+    // Se c'è un metaTheme, aggiorna anche quello
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', '#ffffff'); // O il colore di sfondo chiaro
+    }
+  };
+  
+  // Forza il tema chiaro immediatamente
+  document.documentElement.classList.remove('dark');
+  localStorage.setItem('dark', false);
+  
+  // Previeni che le preferenze del sistema modifichino il tema
+  const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  const originalAddEventListener = darkScheme.addEventListener;
+  darkScheme.addEventListener = function(type, listener) {
+    // Non aggiungere listener per il cambio di tema
+  };
+  
+  // Esegui il reset anche all'evento DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('dark', false);
+  });
+</script>
