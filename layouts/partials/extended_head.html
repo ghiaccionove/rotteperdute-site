@@ -1,0 +1,11 @@
+<script>
+    // Imposta immediatamente il tema chiaro
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('dark', 'false');
+    
+    // Blocca eventuali tentativi di cambiare tema
+    window.addEventListener('DOMContentLoaded', function() {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('dark', 'false');
+    });
+  </script>
