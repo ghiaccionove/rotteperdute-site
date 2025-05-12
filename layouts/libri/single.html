@@ -17,9 +17,21 @@
           {{ if .Params.prezzo }}<p><strong>Prezzo:</strong> {{ .Params.prezzo }}</p>{{ end }}
         </div>
         <div class="libro-acquista">
-          <h3>Acquista:</h3>
+          <p><strong>Copertina flessibile:</strong></p>
           <div class="acquista-links">
-            {{ range .Params.acquista }}
+            {{ range .Params.cartaceo }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="acquista-btn">
+              {{ if .logo }}
+              <img src="{{ .logo | absURL }}" alt="{{ .nome }}" class="store-logo">
+              {{ else }}
+              {{ .nome }}
+              {{ end }}
+            </a>
+            {{ end }}
+          </div>
+          <p><strong>Ebook:</strong></p>
+          <div class="acquista-links">
+            {{ range .Params.ebook }}
             <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="acquista-btn">
               {{ if .logo }}
               <img src="{{ .logo | absURL }}" alt="{{ .nome }}" class="store-logo">

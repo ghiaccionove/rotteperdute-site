@@ -5,9 +5,13 @@ autore: "Machado de Assis"
 traduttore: "Bruno Pinto"
 copertina: "immagini/copertine/resurrezione.jpg"
 pagine: 159
-acquista:
+cartaceo:
   - nome: "Amazon"
     url: "https://www.amazon.it/Resurrezione-Joaquim-Maria-Machado-Assis/dp/B0DHHKBD8P/ref=tmm_pap_swatch_0?_encoding=UTF8&sr=8-1"
+    logo: "immagini/loghi/amazon_logo.png"
+ebook:
+  - nome: "Amazon"
+    url: "https://www.amazon.it/Resurrezione-Joaquim-Maria-Machado-Assis-ebook/dp/B0DGZJVB5B/ref=tmm_kin_swatch_0?_encoding=UTF8&sr=8-1"
     logo: "immagini/loghi/amazon_logo.png"
   - nome: "IBS"
     url: "https://www.ibs.it/resurrezione-ebook-joaquim-maria-machado-de-assis-bruno-pinto/e/1230008829108"
