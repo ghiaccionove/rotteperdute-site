@@ -5,7 +5,11 @@ autore: ""
 traduttore: ""
 copertina: "immagini/copertine/{{ .Name }}.jpg"
 pagine: 0
-acquista:
+acquista_cartaceo:
+  - nome: "Amazon"
+    url: ""
+    logo: "immagini/loghi/amazon_logo.png"
+acquista_ebook:
   - nome: "Amazon"
     url: ""
     logo: "immagini/loghi/amazon_logo.png"

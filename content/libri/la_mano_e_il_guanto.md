@@ -5,7 +5,11 @@ autore: "Machado de Assis"
 traduttore: "Bruno Pinto"
 copertina: "immagini/copertine/la_mano_e_il_guanto.jpg"
 pagine: 147
-acquista:
+cartaceo:
+  - nome: "Amazon"
+    url: "https://www.amazon.it/guanto-Joaquim-Maria-Machado-Assis/dp/B0DVZB6Z9V/ref=tmm_pap_swatch_0?_encoding=UTF8&sr=8-1"
+    logo: "immagini/loghi/amazon_logo.png"
+ebook:
   - nome: "Amazon"
     url: "https://www.amazon.it/guanto-Joaquim-Maria-Machado-Assis/dp/B0DVZB6Z9V/ref=tmm_pap_swatch_0?_encoding=UTF8&sr=8-1"
     logo: "immagini/loghi/amazon_logo.png"

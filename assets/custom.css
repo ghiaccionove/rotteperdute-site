@@ -66,14 +66,30 @@
   .libro-info {
     flex: 1;
   }
+
+  .libro-info h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 0.2rem;
+  }
   
   .acquista-links {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
   }
   
+  .libro-acquista h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
   @media (max-width: 768px) {
     .libro-header {
       flex-direction: column;
@@ -91,6 +107,8 @@
     height: 40px;
     max-width: 100px;
     vertical-align: middle;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
   }
   
   .acquista-btn {
