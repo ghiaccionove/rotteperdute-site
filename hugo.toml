@@ -4,6 +4,11 @@ title = 'Rotte Perdute Traduzioni'
 theme = 'paper'
 
 [[menu.main]]
+name = 'Home'
+url = '/'
+weight = 0
+
+[[menu.main]]
 name = 'Chi Siamo'
 url = '/chi-siamo/'
 weight = 1
