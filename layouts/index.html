@@ -3,6 +3,10 @@
   <img src="{{ "/immagini/loghi/logo_testo.png" | absURL }}" alt="{{ .Site.Title }}" class="site-logo">
   <p>{{ .Site.Params.description }}</p>
   
+        <nav style="text-align:center; margin: 1rem 0;">
+            <a href="/chi-siamo/" style="display:inline-block; padding: 0.5rem 1.5rem; border: 1px solid currentColor; text-decoration:none; font-size:0.9rem; letter-spacing:0.05em;">Chi Siamo</a>
+    </nav>
+  
   <div class="libri-grid">
     {{ range where .Site.RegularPages "Section" "libri" }}
       <div class="libro-card">
