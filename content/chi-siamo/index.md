@@ -19,3 +19,7 @@ Per informazioni, collaborazioni o semplicemente per conoscerci meglio:
 **Instagram:** [@rotteperdute](https://www.instagram.com/rotteperdute/)
 
 Seguici sui nostri canali per restare aggiornato sulle nuove pubblicazioni e scoprire le storie dietro ogni traduzione.
+
+---
+
+[← Torna alla Home](/)
