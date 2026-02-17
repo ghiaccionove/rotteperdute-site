@@ -3,6 +3,9 @@ languageCode = 'it-it'
 title = 'Rotte Perdute Traduzioni'
 theme = 'paper'
 
+[Params]
+favicon = '/immagini/loghi/logo_favicon.png'
+
 [[menu.main]]
 name = 'Home'
 url = '/'
