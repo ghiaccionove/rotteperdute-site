@@ -2,3 +2,8 @@ baseURL = 'https://rotteperdute.it/'
 languageCode = 'it-it'
 title = 'Rotte Perdute Traduzioni'
 theme = 'paper'
+
+[[menu.main]]
+name = 'Chi Siamo'
+url = '/chi-siamo/'
+weight = 1
