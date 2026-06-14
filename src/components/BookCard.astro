@@ -1,0 +1,48 @@
+---
+interface Props {
+  href: string;
+  titolo: string;
+  autore: string;
+  copertina: string;
+  anno?: number;
+  paese?: string;
+  eager?: boolean;
+}
+const { href, titolo, autore, copertina, anno, paese, eager = false } =
+  Astro.props;
+---
+
+<a href={href} class="book-link group block focus:outline-none">
+  <div class="book">
+    <div class="book__pages"></div>
+    <div class="book__cover">
+      <img
+        src={copertina}
+        alt={`Copertina di ${titolo}`}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        width="400"
+        height="600"
+      />
+    </div>
+  </div>
+
+  <div class="mt-5">
+    {
+      paese && (
+        <span class="font-[var(--font-sans)] text-[0.66rem] uppercase tracking-[0.18em] text-[var(--color-fumo)]">
+          {paese}
+          {anno ? ` · ${anno}` : ''}
+        </span>
+      )
+    }
+    <h3
+      class="mt-1 text-[1.35rem] leading-tight text-[var(--color-inchiostro)] transition-colors group-hover:text-[var(--color-terracotta)]"
+    >
+      {titolo}
+    </h3>
+    <p class="mt-0.5 text-[0.98rem] italic text-[var(--color-inchiostro-soft)]">
+      {autore}
+    </p>
+  </div>
+</a>

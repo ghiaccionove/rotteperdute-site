@@ -1,0 +1,121 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BookCard from '../../components/BookCard.astro';
+
+const libri = (await getCollection('libri')).sort(
+  (a, b) => b.data.ordine - a.data.ordine
+);
+
+// Filtri generati dinamicamente dai metadati: scalano da soli con nuovi libri.
+const paesi = [...new Set(libri.map((l) => l.data.paese).filter(Boolean))].sort();
+---
+
+<Layout
+  titolo="I nostri libri"
+  descrizione="Il catalogo completo di Rotte Perdute Traduzioni: classici dimenticati e autori inediti tradotti in italiano."
+>
+  <section class="mx-auto max-w-6xl px-6 pt-20 pb-10">
+    <p class="eyebrow reveal">Catalogo</p>
+    <h1 class="reveal mt-3 text-[clamp(2.4rem,6vw,4.5rem)] leading-[1]">
+      I nostri libri
+    </h1>
+    <p
+      class="reveal mt-6 max-w-2xl text-[1.15rem] text-[var(--color-inchiostro-soft)]"
+    >
+      La collezione completa delle opere che abbiamo riportato in italiano.
+    </p>
+
+    {
+      paesi.length > 1 && (
+        <div class="reveal mt-10 flex flex-wrap gap-2.5" id="filtri">
+          <button class="filtro is-active" data-filtro="tutti" type="button">
+            Tutti
+          </button>
+          {paesi.map((p) => (
+            <button class="filtro" data-filtro={p} type="button">
+              {p}
+            </button>
+          ))}
+        </div>
+      )
+    }
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-10">
+    <div
+      id="griglia"
+      class="grid grid-cols-2 gap-x-8 gap-y-14 md:grid-cols-3 lg:grid-cols-4"
+    >
+      {
+        libri.map((libro, i) => (
+          <div class="reveal libro-item" data-paese={libro.data.paese ?? ''}>
+            <BookCard
+              href={`/libri/${libro.id}`}
+              titolo={libro.data.titolo}
+              autore={libro.data.autore}
+              copertina={libro.data.copertina}
+              anno={libro.data.anno}
+              paese={libro.data.paese}
+              eager={i < 4}
+            />
+          </div>
+        ))
+      }
+    </div>
+    <p
+      id="vuoto"
+      class="hidden py-16 text-center text-[var(--color-fumo)] italic"
+    >
+      Nessun titolo per questo filtro, per ora.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .filtro {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-linea);
+    color: var(--color-inchiostro-soft);
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .filtro:hover {
+    border-color: var(--color-inchiostro);
+    color: var(--color-inchiostro);
+  }
+  .filtro.is-active {
+    background: var(--color-inchiostro);
+    border-color: var(--color-inchiostro);
+    color: var(--color-crema);
+  }
+</style>
+
+<script>
+  const bottoni = document.querySelectorAll<HTMLButtonElement>('.filtro');
+  const items = document.querySelectorAll<HTMLElement>('.libro-item');
+  const vuoto = document.getElementById('vuoto');
+
+  bottoni.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filtro;
+      bottoni.forEach((b) => b.classList.toggle('is-active', b === btn));
+
+      let visibili = 0;
+      items.forEach((item) => {
+        const mostra = f === 'tutti' || item.dataset.paese === f;
+        item.style.display = mostra ? '' : 'none';
+        if (mostra) visibili++;
+      });
+      if (vuoto) vuoto.classList.toggle('hidden', visibili > 0);
+    });
+  });
+</script>

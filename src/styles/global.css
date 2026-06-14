@@ -1,0 +1,284 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/newsreader';
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — palette editoriale calda (crema / inchiostro /     */
+/*  terracotta). Esposti come utility Tailwind v4 via @theme.          */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-body: 'Newsreader Variable', Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-crema: #faf6ef;
+  --color-crema-scuro: #f1e9da;
+  --color-carta: #fffdf9;
+  --color-inchiostro: #211d1a;
+  --color-inchiostro-soft: #514a43;
+  --color-fumo: #8a7f72;
+  --color-linea: #e3dac8;
+  --color-terracotta: #b8552e;
+  --color-terracotta-scuro: #95431f;
+  --color-oro: #c79a52;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-crema);
+    color: var(--color-inchiostro);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-terracotta);
+    color: var(--color-crema);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  /* Etichette / occhielli in maiuscoletto spaziato */
+  .eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-terracotta);
+  }
+
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-inchiostro-soft);
+    position: relative;
+    transition: color 0.25s ease;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 0;
+    background: var(--color-terracotta);
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover {
+    color: var(--color-inchiostro);
+  }
+  .nav-link:hover::after,
+  .nav-link[aria-current='page']::after {
+    width: 100%;
+  }
+  .nav-link[aria-current='page'] {
+    color: var(--color-inchiostro);
+  }
+
+  /* Pulsante terracotta */
+  .btn {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    transition:
+      transform 0.25s ease,
+      background-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .btn-primario {
+    background: var(--color-terracotta);
+    color: var(--color-crema);
+    box-shadow: 0 10px 24px -12px var(--color-terracotta);
+  }
+  .btn-primario:hover {
+    background: var(--color-terracotta-scuro);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    border: 1px solid var(--color-linea);
+    color: var(--color-inchiostro);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-inchiostro);
+    transform: translateY(-2px);
+  }
+
+  /* ---------------------------------------------------------------- */
+  /*  Libro 3D — al passaggio del mouse la copertina si apre appena    */
+  /* ---------------------------------------------------------------- */
+  .book {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    perspective: 1600px;
+  }
+
+  /* le pagine sotto la copertina */
+  .book__pages {
+    position: absolute;
+    inset: 0;
+    border-radius: 3px 6px 6px 3px;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.06), transparent 12%),
+      repeating-linear-gradient(
+        90deg,
+        #efe7d8 0px,
+        #efe7d8 1px,
+        #ddd2bd 2px,
+        #efe7d8 3px
+      );
+    box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .book__cover {
+    position: absolute;
+    inset: 0;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    border-radius: 3px 6px 6px 3px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.18),
+      0 14px 30px -14px rgba(33, 29, 26, 0.55);
+    transition:
+      transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+    z-index: 2;
+  }
+  .book__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* dorso + lucentezza */
+  .book__cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0) 22%
+    );
+    pointer-events: none;
+  }
+  .book__cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 7px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.28),
+      rgba(0, 0, 0, 0.05) 60%,
+      rgba(255, 255, 255, 0.12)
+    );
+  }
+
+  .book-link:hover .book__cover,
+  .book-link:focus-visible .book__cover {
+    transform: rotateY(-34deg);
+    box-shadow:
+      0 2px 2px rgba(0, 0, 0, 0.12),
+      0 38px 55px -25px rgba(33, 29, 26, 0.6);
+  }
+  .book-link:hover .book,
+  .book-link:focus-visible .book {
+    transform: translateY(-6px);
+  }
+  .book {
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* prosa per sinossi / pagine testuali */
+  .prosa {
+    max-width: 65ch;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--color-inchiostro-soft);
+  }
+  .prosa p + p {
+    margin-top: 1.4em;
+  }
+  .prosa h2 {
+    font-size: 1.8rem;
+    margin: 2em 0 0.6em;
+    color: var(--color-inchiostro);
+  }
+  .prosa a {
+    color: var(--color-terracotta);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* Entrata in scena al caricamento / scroll */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  .book-link:hover .book__cover,
+  .book-link:focus-visible .book__cover {
+    transform: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

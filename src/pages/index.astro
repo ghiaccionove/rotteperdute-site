@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import BookCard from '../components/BookCard.astro';
+
+const libri = (await getCollection('libri')).sort(
+  (a, b) => b.data.ordine - a.data.ordine
+);
+const evidenza = libri.filter((l) => l.data.inEvidenza).slice(0, 3);
+const inVetrina = evidenza.length ? evidenza : libri.slice(0, 3);
+---
+
+<Layout titolo="Rotte Perdute Traduzioni">
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute -top-32 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,var(--color-crema-scuro),transparent_70%)]"
+    >
+    </div>
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-16 md:pt-28">
+      <p class="eyebrow reveal">Casa editrice indipendente</p>
+      <h1
+        class="reveal mt-5 max-w-4xl text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.98] tracking-[-0.02em]"
+      >
+        Rotte perdute,<br />
+        <em class="text-[var(--color-terracotta)]">storie ritrovate.</em>
+      </h1>
+      <p
+        class="reveal mt-8 max-w-2xl text-[1.2rem] leading-relaxed text-[var(--color-inchiostro-soft)]"
+      >
+        Riportiamo alla luce opere mai tradotte in italiano, restituendo voce a
+        classici dimenticati e autori inediti — un libro, una lingua, una rotta
+        alla volta.
+      </p>
+      <div class="reveal mt-10 flex flex-wrap gap-4">
+        <a href="/libri" class="btn btn-primario">Esplora il catalogo</a>
+        <a href="/chi-siamo" class="btn btn-ghost">Chi siamo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN EVIDENZA -->
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="mb-12 flex items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow reveal">In evidenza</p>
+        <h2 class="reveal mt-2 text-[clamp(1.8rem,4vw,2.8rem)]">
+          Dalla nostra collana
+        </h2>
+      </div>
+      <a
+        href="/libri"
+        class="nav-link reveal hidden shrink-0 pb-2 sm:inline-block"
+        >Tutti i libri →</a
+      >
+    </div>
+
+    <div class="grid grid-cols-2 gap-x-8 gap-y-14 md:grid-cols-3">
+      {
+        inVetrina.map((libro, i) => (
+          <div class="reveal" style={`transition-delay:${i * 90}ms`}>
+            <BookCard
+              href={`/libri/${libro.id}`}
+              titolo={libro.data.titolo}
+              autore={libro.data.autore}
+              copertina={libro.data.copertina}
+              anno={libro.data.anno}
+              paese={libro.data.paese}
+              eager={i === 0}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 text-center sm:hidden">
+      <a href="/libri" class="btn btn-ghost">Tutti i libri</a>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="border-y border-[var(--color-linea)] bg-[var(--color-carta)]">
+    <div
+      class="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1fr_1.4fr] md:gap-16"
+    >
+      <h2 class="reveal text-[clamp(1.8rem,4vw,2.6rem)] leading-tight">
+        La traduzione come<br /><em class="text-[var(--color-terracotta)]"
+          >atto di scoperta.</em
+        >
+      </h2>
+      <div class="reveal prosa !max-w-none">
+        <p>
+          Ogni titolo nasce da un lavoro accurato di ricerca e traduzione.
+          Cerchiamo testi rimasti ai margini — per lingua, epoca o geografia — e
+          li riconsegniamo al lettore con la cura che meritano.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

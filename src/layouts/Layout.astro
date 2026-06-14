@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  titolo: string;
+  descrizione?: string;
+  immagine?: string;
+}
+
+const {
+  titolo,
+  descrizione = 'Rotte Perdute Traduzioni — progetto editoriale indipendente che riporta alla luce opere mai tradotte in italiano.',
+  immagine = '/immagini/loghi/logo_rotteperdute.png',
+} = Astro.props;
+
+const titoloCompleto =
+  titolo === 'Rotte Perdute Traduzioni'
+    ? titolo
+    : `${titolo} · Rotte Perdute Traduzioni`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(immagine, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/immagini/loghi/logo_favicon.png" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{titoloCompleto}</title>
+    <meta name="description" content={descrizione} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content={titoloCompleto} />
+    <meta property="og:description" content={descrizione} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Rivela gli elementi .reveal quando entrano nel viewport.
+      const els = document.querySelectorAll('.reveal');
+      if (
+        'IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>

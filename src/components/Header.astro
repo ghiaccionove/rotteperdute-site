@@ -1,0 +1,50 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { nome: 'Home', url: '/' },
+  { nome: 'Libri', url: '/libri' },
+  { nome: 'Chi Siamo', url: '/chi-siamo' },
+];
+const isActive = (url: string) =>
+  url === '/' ? path === '/' : path === url || path.startsWith(url + '/');
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-[var(--color-linea)] bg-[color-mix(in_srgb,var(--color-crema)_85%,transparent)] backdrop-blur-md"
+>
+  <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+    <a href="/" class="group flex items-center gap-2.5">
+      <img
+        src="/immagini/loghi/logo_rotteperdute_trasparente.png"
+        alt="Logo Rotte Perdute"
+        width="40"
+        height="40"
+        class="h-9 w-9 shrink-0 transition-transform duration-500 ease-out group-hover:rotate-[8deg]"
+      />
+      <span class="flex items-baseline gap-2.5">
+        <span
+          class="font-[var(--font-display)] text-xl font-medium tracking-tight text-[var(--color-inchiostro)]"
+          >Rotte Perdute</span
+        >
+        <span
+          class="hidden font-[var(--font-sans)] text-[0.62rem] uppercase tracking-[0.25em] text-[var(--color-terracotta)] sm:inline"
+          >Traduzioni</span
+        >
+      </span>
+    </a>
+
+    <nav class="flex items-center gap-7 sm:gap-10">
+      {
+        links.map((l) => (
+          <a
+            href={l.url}
+            class="nav-link"
+            aria-current={isActive(l.url) ? 'page' : undefined}
+          >
+            {l.nome}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout titolo="Pagina non trovata">
+  <section
+    class="mx-auto flex max-w-2xl flex-col items-center px-6 py-32 text-center"
+  >
+    <p class="eyebrow">Errore 404</p>
+    <h1 class="mt-4 text-[clamp(3rem,10vw,6rem)] leading-none">Rotta persa</h1>
+    <p class="mt-6 text-[1.15rem] text-[var(--color-inchiostro-soft)]">
+      La pagina che cercavi non esiste o è stata spostata.
+    </p>
+    <a href="/" class="btn btn-primario mt-10">Torna alla home</a>
+  </section>
+</Layout>
